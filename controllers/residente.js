@@ -53,7 +53,7 @@ exports.getResidente = asyncHandler(async (req, res, next) => {
     });
 });
 
-exports.getResidente = asyncHandler(async (req, res, next) => {
+exports.getResidenteByCode = asyncHandler(async (req, res, next) => {
     Residente.findbycode(req.params.code, (err, data) => {
         if (err) {
             if (err.kind === "not_found") {

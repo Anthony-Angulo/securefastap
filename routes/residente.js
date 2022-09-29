@@ -21,7 +21,7 @@ router
 
     router
     .route("/codigo/:code")
-    .get(getResidente);
+    .get(getResidenteByCode);
 
 
 router
