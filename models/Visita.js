@@ -26,10 +26,12 @@ Visita.getAll = result => {
         `SELECT r.nombre AS residenteNombre, 
         r.apellidoPaterno AS residenteApellido, 
         r.direccion, 
-        v.placas, 
+        v.placas,
+        v.marca,
         v.nombre AS vehiculoNombre, 
         v.apellidoPaterno AS vehiculoApellido,
-        x.numeroVisita
+        x.numeroVisita,
+        x.fechaVisita
         FROM ${process.env.DB}.visita AS x
         JOIN ${process.env.DB}.residente AS r
         ON x.idResidente = r.id
