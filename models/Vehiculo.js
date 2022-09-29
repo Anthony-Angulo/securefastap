@@ -59,7 +59,7 @@ Vehiculo.findbyid = (vehiculoId, result) => {
 
 Vehiculo.findbyplacas = (placas, result) => {
     connectionDB.query(
-        `SELECT * FROM ${process.env.DB}.vehiculo WHERE placas='${placas}'`, (err, res) => {
+        `SELECT * FROM ${process.env.DB}.vehiculo WHERE placas='${placas}' AND status=1`, (err, res) => {
             if(err) {
                 result(err, null);
                 return;
