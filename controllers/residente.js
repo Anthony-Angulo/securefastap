@@ -53,6 +53,24 @@ exports.getResidente = asyncHandler(async (req, res, next) => {
     });
 });
 
+exports.getResidente = asyncHandler(async (req, res, next) => {
+    Residente.findbycode(req.params.code, (err, data) => {
+        if (err) {
+            if (err.kind === "not_found") {
+              res.status(404).send({
+                message: `Residente con El codigo ${req.params.id} No Encontado`,
+              });
+            } else {
+              res.status(500).send({
+                message: `Error Al Buscar Residente Con El codigo ${req.params.id}`,
+              });
+            }
+          } else {
+            res.status(200).send(data);
+          } 
+    });
+});
+
 exports.updateResidente = asyncHandler(async (req, res, next) => {
 
     const residente = new Residente({

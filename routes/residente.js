@@ -19,6 +19,11 @@ router
     .route("/:id")
     .get(getResidente);
 
+    router
+    .route("/codigo/:code")
+    .get(getResidente);
+
+
 router
     .route("/:id")
     .delete(deleteResidente);

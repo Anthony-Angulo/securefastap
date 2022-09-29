@@ -56,6 +56,24 @@ Residente.findbyid = (residenteId, result) => {
     );
 };
 
+Residente.findbycode = (residentecode, result) => {
+    connectionDB.query(
+        `SELECT * FROM ${process.env.DB}.residente WHERE codigo=${residentecode}`, (err, res) => {
+            if(err) {
+                result(err, null);
+                return;
+            }
+      
+            if(res) {
+                result(null, res[0]);
+                return;
+            }
+      
+            result({ kind: "not_found"}, null);
+        }
+    );
+};
+
 Residente.update = (id, residente, result) => {
     connectionDB.query(
         `UPDATE ${process.env.DB}.residente SET ? WHERE id=${id}`, residente, (err, res) => {
