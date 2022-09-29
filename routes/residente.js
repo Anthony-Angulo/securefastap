@@ -4,6 +4,7 @@ const {
     getResidentes,
     getResidente,
     updateResidente,
+    getResidenteByCode,
     deleteResidente
 } = require("../controllers/residente");
 
